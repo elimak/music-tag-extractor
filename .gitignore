@@ -1,0 +1,8 @@
+.env
+
+# IDE
+.idea
+
+scheduler/data
+
+node_modules

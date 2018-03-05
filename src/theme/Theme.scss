@@ -1,0 +1,85 @@
+$button-disabled-text-color: #ffffff;
+$button-disabled-background-color: #ababab;
+$button-neutral-color-contrast: #FFFFFF;
+$button-neutral-color: #1DB954;
+$button-neutral-color-hover: #000000;
+
+$color-divider: #f5f5f5;
+$progress-main-color: #1DB954;
+$progress-disabled-color: #9E9E9E;
+$progress-secondary-color: #ffffff;
+
+///BUTTON
+
+%button {
+    &[disabled] {
+        color: $button-disabled-text-color;
+    }
+}
+
+%solid {
+    &[disabled] {
+        background-color: $button-disabled-background-color;
+    }
+}
+
+.neutral:not([disabled]) {
+    &.raised, &.floating {
+        color: $button-neutral-color-contrast;
+        background-color: $button-neutral-color;
+    }
+    &.flat, &.toggle {
+        color: $button-neutral-color-contrast;
+        &:focus:not(:active) {
+            background: $button-neutral-color-hover;
+        }
+    }
+    &.flat:hover {
+        background: $button-neutral-color-hover;
+    }
+
+    &.inverse {
+        &.raised, &.floating {
+            color: $button-neutral-color;
+            background-color: $button-neutral-color-contrast;
+        }
+        &.flat, &.toggle {
+            color: $button-neutral-color;
+            &:focus:not(:active) {
+                background: $button-neutral-color-hover;
+            }
+        }
+        &.flat:hover {
+            background: $button-neutral-color-hover;
+        }
+    }
+}
+
+/// PROGRESS BAR
+
+.linear {
+    background: $color-divider;
+}
+
+.value {
+    background-color: $progress-main-color;
+}
+
+[disabled] .value {
+    background-color: $progress-disabled-color;
+}
+
+.buffer {
+    background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
+    linear-gradient(to right, $progress-main-color, $progress-main-color);
+}
+
+[disabled] .buffer {
+    background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
+    linear-gradient(to right, $progress-disabled-color, $progress-disabled-color);
+}
+
+.path {
+    stroke: $progress-main-color;
+}
+
